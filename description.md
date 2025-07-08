@@ -1,14 +1,29 @@
 
+## About Pillar and Microdown
 
-## Pillar and Microdown
+Pillar was the name of both an editorial compilation chain (think of as text as input produces html, LaTeX as output) and a textual format. 
+Nowadays Pillar is just the name of the compilation chain and Microdown is the format of the input texts.
 
 
 
 
-## Pillar help
+### Actions 
+
+Pillar supports multiple actions. 
+Here is a list 
+
+- `archetype` will install a given template in the current repository
+- `build` will build the output in the format specified (either html or pdf)
+- `referenceCheck` will produce a report on the anchors and references - missing, duplicate, unreferenced anchors are reported.
+- `codeCheck` will produce a report to mention the code that are out of sync. See below for a better explanation.
+
+
+
+#### Pillar help
+We are about to revisit the command line of Pillar but here is the current situation. 
 
 ```
-pillar --help                                                                [12:51:57]
+pillar --help
 Pillar is a markup syntax and associated tools to write and generate documents lie books in PDF, websites in html, or slides
 
 Usage: pillar [--help] [--version]
@@ -43,7 +58,10 @@ Commands:
 
 ## About Sync
 
+When you write technical documentation you often need to refer to the implementation of a given class or method. 
+Usually this is easy, you copy and paste the code of the method.
 
+Now the problem occurs when 
 
 
 
