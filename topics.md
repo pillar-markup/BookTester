@@ -28,7 +28,17 @@ Here is a list
 
 ### Better Life and Sync functionality
 
+Microdown should support (it was but it is unclear that it is still the case) the possibility to generate in the output
+the definition of classes or methods without copy pasting it. 
 
+The following definition should 
+```
+	```life=true|OrderedCollection>>add:
+	```
+```
+
+Microdown supports the possibility to verify whether a given piece of code (method or class definition) 
+is in sync with the actual version of the code. 
 
 ### Book web publication
 

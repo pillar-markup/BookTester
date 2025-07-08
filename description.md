@@ -69,7 +69,9 @@ Now the problem occurs when
 
 ## About reference checker
 
-/Users/ducasse/Documents/Pharo/vms/120-x64/Pharo.app/Contents/MacOS/Pharo /Users/ducasse/Test2/pillar/build/Pharo.image clap pillar referenceCheck index.md
+```
+pharopillarImage.image clap pillar referenceCheck index.md
+```
 
 ```
 File index.md has reference problems.
