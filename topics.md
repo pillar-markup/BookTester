@@ -1,5 +1,4 @@
-Microdown is a markup language. It integrates with the pillar
-compilation chain.
+Microdown is a markup language. It integrates with the pillar compilation chain.
 
 It is the basis for
 - Slides 
@@ -9,36 +8,38 @@ It is the basis for
 - Web page generation
 
 We will learn about the Visitor, document model, optionally parsing.
-
 We want to improve the testing of the books and the support for the book writers.
 
 ## Repository
-
- Here is the general repository of Microdown.
+http://github.com/pillar-markup/microdown is the general repository of Microdown.
 We have some bug to fix and extensions.
-	http://github.com/pillar-markup/microdown
-
-
 
 ## Possible ideas
 
-The chapter 17 on Microdown in the book https://github.com/SquareBracketAssociates/Booklet-AdvancedMicroProjects describes different possible projects.
+### Some little appetizers
 
-Here is a list
+The chapter 17 on Microdown in the book https://github.com/SquareBracketAssociates/Booklet-AdvancedMicroProjects describes different possible projects
 
 ### Better Life and Sync functionality
 
-Microdown should support (it was but it is unclear that it is still the case) the possibility to generate in the output
+Microdown supports (it was but it is unclear that it is still the case) the possibility to generate in the output
 the definition of classes or methods without copy pasting it. 
 
-The following definition should 
+The following definition 
+
 ```
-	```life=true|OrderedCollection>>add:
+	```life=true|OrderedCollection>>#add:
 	```
 ```
+will include the definition of the method `OrderedCollection>>#add:` that is actually used to produce the book or document. 
 
 Microdown supports the possibility to verify whether a given piece of code (method or class definition) 
 is in sync with the actual version of the code. 
+
+
+
+
+
 
 ### Book web publication
 
