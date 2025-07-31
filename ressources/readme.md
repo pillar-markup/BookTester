@@ -1,6 +1,6 @@
 This directory contains several documents produced during different internships. 
 
-- Duca20a-Microdown-IWST.pdf is a document describing the first version of Microdown as developed with Laurine Dargaud, Guillermo Polito and Stéphane Ducasse. 
+- https://github.com/pillar-markup/BookTester/ressources/Duca20a-Microdown-IWST.pdf is a document describing the first version of Microdown as developed with Laurine Dargaud, Guillermo Polito and Stéphane Ducasse. 
 
 - RapportStageDelporteGaylord.pdf and its companion presentation presents the effort to move behavior from Pillar to Microdown (visitors, generators)
 
