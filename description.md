@@ -58,41 +58,49 @@ Commands:
                 Create a microdown slide file in the current directory, which contains the conversion in microdown format of the argument.
 ```
 
-## About Sync
-
-When you write a technical documentation you often need to refer to the implementation of a given class or method. 
-Usually this is easy, you copy and paste the code of the method.
-
-Now the problem occurs when the code of the library changes. In this case you get an obsolete documentation and it is difficult to know what changed. Note that using the life feature that automatically displays a method or class body does not solve the problem. Because there may be other texts referring to the code snippets that get inconsistent. 
-
-Microdown offers sync features
-
-```
-    ```sync=true&origin=MicMethodBodySyncTest>>#simpleCode'.
-	methodDef := 
-'simpleCode
-	"This is not the definition of simpleCode"
-	
-	^ 100 slowFactorial + 100'
-     ```
-```
-
-The class `MicMethodBodySyncTest` provides tests for such a functionality.
-
 
 ## About tests
 
+Microdown document can also include the possibility to test whether a given expression returns a correct value. 
+For example the following example shows that the writer can ensure that the execution of `3+ 4` is really given 7.
+Here the example is trivial but it shows that we can make sure that examples in books are up to date.
 
 
+```
+	```example=true	3 + 4 	>>> 7	```
+```
+
+The following one expresses that the code snippet should raise an error.
+
+```
+	```example=true&expectedFailure=true	1 / 0 	>>> 12			```
+```
 
 
+```
+pharo pillarImage.image clap pillar codeCheck index.md
+```
+
+The class `MicBookTesterVisitorTest` defines several tests covering this feature.
 
 
 ## About reference checker
 
+The reference checker reports the following problems:
+- unreferenced anchor
+- missing anchors
+- duplicated anchors
+
+It starts from a document and analyses only the documents that can be reached from this first document.
+It means that you can have files with draft contents without getting impacting by the reference checker. 
+
 ```
-pharopillarImage.image clap pillar referenceCheck index.md
+pharo pillarImage.image clap pillar referenceCheck index.md
 ```
+
+Note that the shell script will change in the future but its essence will stay the same. 
+
+Here is a possible output. 
 
 ```
 File index.md has reference problems.
@@ -116,3 +124,30 @@ File index.md has reference problems.
 	Anchor objectHeader is undefined in file: /Users/ducasse/Workspace/FirstCircle/MyBooks/Bk-Writing/PharoBooks2/Booklet-PharoVirtualMachine/Part3-MemoryManagement/GarbageCollector/ephemerons.md
 	Anchor specialObjectArray is undefined in file: /Users/ducasse/Workspace/FirstCircle/MyBooks/Bk-Writing/PharoBooks2/Booklet-PharoVirtualMachine/Part3-MemoryManagement/GarbageCollector/ephemerons.md
 ```
+
+The subclasses of class `MicFileTest` define several tests covering such behavior. 
+
+
+
+## About Sync
+
+When you write a technical documentation you often need to refer to the implementation of a given class or method. 
+Usually this is easy, you copy and paste the code of the method.
+
+Now the problem occurs when the code of the library changes. In this case you get an obsolete documentation and it is difficult to know what changed. Note that using the life feature that automatically displays a method or class body does not solve the problem. Because there may be other texts referring to the code snippets that get inconsistent. 
+
+Microdown offers sync features
+
+```
+    ```sync=true&origin=MicMethodBodySyncTest>>#simpleCode'.
+	methodDef := 
+'simpleCode
+	"This is not the definition of simpleCode"
+	
+	^ 100 slowFactorial + 100'
+     ```
+```
+
+The class `MicMethodBodySyncTest` provides tests for such functionality.
+
+
