@@ -4,10 +4,12 @@
 Pillar was the name of both an editorial compilation chain (think of as text as input produces html, LaTeX as output) and a textual format. 
 Nowadays Pillar is just the name of the compilation chain and Microdown is the format of the input texts.
 
+Pillar is an architecture to produce documents. Depending on the kind of documents produces it will schedule different tasks. 
+
+In the past Pillar defined visitors on Pillar ASTs to perform associated treatments (generate HTML, LaTeX). Nowadays such behavior got migrated to Microdown itself. 
 
 
-
-### Actions 
+### Pillar actions 
 
 Pillar supports multiple actions. 
 Here is a list 
@@ -16,8 +18,9 @@ Here is a list
 - `build` will build the output in the format specified (either html or pdf)
 - `referenceCheck` will produce a report on the anchors and references - missing, duplicate, unreferenced anchors are reported.
 - `codeCheck` will produce a report to mention the code that are out of sync. See below for a better explanation.
+- `convert*` convert book, chapter, slides from Pillar to Microdown. 
 
-
+We are about to revisit all the command line implementation and exposition to the user. 
 
 #### Pillar help
 We are about to revisit the command line of Pillar but here is the current situation. 
@@ -55,10 +58,9 @@ Commands:
                 Create a microdown slide file in the current directory, which contains the conversion in microdown format of the argument.
 ```
 
-
 ## About Sync
 
-When you write technical documentation you often need to refer to the implementation of a given class or method. 
+When you write a technical documentation you often need to refer to the implementation of a given class or method. 
 Usually this is easy, you copy and paste the code of the method.
 
 Now the problem occurs when the code of the library changes. In this case you get an obsolete documentation and it is difficult to know what changed. Note that using the life feature that automatically displays a method or class body does not solve the problem. Because there may be other texts referring to the code snippets that get inconsistent. 
@@ -76,6 +78,14 @@ Microdown offers sync features
 ```
 
 The class `MicMethodBodySyncTest` provides tests for such a functionality.
+
+
+## About tests
+
+
+
+
+
 
 
 ## About reference checker

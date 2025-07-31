@@ -1,7 +1,6 @@
-
 # BookUtilities: book tests, validation, and more
 
-This project is about how to help writers writing technical books in Microdown in the context of the Pillar compilation chain.
+This project is about how to help writers write technical books in Microdown in the context of the Pillar compilation chain.
 
 Its goal is to 
 - help identify dead references
