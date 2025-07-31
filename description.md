@@ -61,10 +61,21 @@ Commands:
 When you write technical documentation you often need to refer to the implementation of a given class or method. 
 Usually this is easy, you copy and paste the code of the method.
 
-Now the problem occurs when 
+Now the problem occurs when the code of the library changes. In this case you get an obsolete documentation and it is difficult to know what changed. Note that using the life feature that automatically displays a method or class body does not solve the problem. Because there may be other texts referring to the code snippets that get inconsistent. 
 
+Microdown offers sync features
 
+```
+    ```sync=true&origin=MicMethodBodySyncTest>>#simpleCode'.
+	methodDef := 
+'simpleCode
+	"This is not the definition of simpleCode"
+	
+	^ 100 slowFactorial + 100'
+     ```
+```
 
+The class `MicMethodBodySyncTest` provides tests for such a functionality.
 
 
 ## About reference checker
