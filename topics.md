@@ -14,7 +14,9 @@ We want to improve the testing of the books and the support for the book writers
 http://github.com/pillar-markup/microdown is the general repository of Microdown.
 We have some bug to fix and extensions.
 
-## Possible ideas
+## Possible ideas for improvement
+
+The following list presents some ideas 
 
 ### Some little appetizers
 
@@ -22,22 +24,24 @@ The chapter 17 on Microdown in the book https://github.com/SquareBracketAssociat
 
 ### Better Life and Sync functionality
 
-Microdown supports (it was but it is unclear that it is still the case) the possibility to generate in the output
-the definition of classes or methods without copy pasting it. 
+Microdown got support the possibility to generate in the output the definition of classes or methods without copy pasting it. 
 
 The following definition 
 
 ```
-	```life=true|OrderedCollection>>#add:
+	```life=true|OrderedCollection >> #add:
 	```
 ```
 will include the definition of the method `OrderedCollection>>#add:` that is actually used to produce the book or document. 
 
+- We should verify that this is still the case.
+- Check the strategy architecture subclasses of `MicBookTesterStrategy`
+- We should reintroduce the life feature
+- Read the tests defined in MicMethodBodySyncTest
+
+
 Microdown supports the possibility to verify whether a given piece of code (method or class definition) 
 is in sync with the actual version of the code. 
-
-
-
 
 
 
