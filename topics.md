@@ -22,6 +22,43 @@ The following list presents some ideas
 
 The chapter 17 on Microdown in the book https://github.com/SquareBracketAssociates/Booklet-AdvancedMicroProjects describes different possible projects
 
+
+
+### Support for hiding corrections
+
+
+Imagine the file Chapter1/File1.md 
+
+```
+		```exercice
+               Foo>> bar
+					some code
+        ```
+```
+
+We want that the document is transformed into 
+
+```
+## Chapt
+@Chap1
+
+		```exercice
+               Foo>> bar
+			… Your code …
+              ```
+```
+
+and that another file `Chapter1/File1Solution.md` is generated with the 	
+
+```
+  	 	Here is the solution of the code *@Code1@* in Chapter *@Chap1@*
+  		```
+        Foo>> bar
+			some code
+        ```
+
+```
+
 ### Better Life and Sync functionality
 
 Microdown got support the possibility to generate in the output the definition of classes or methods without copy pasting it. 
