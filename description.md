@@ -38,24 +38,12 @@ Options:
 Commands:
     archetype   Create a pillar project in the current directory, which contains a basic template and skeleton pillar files following the archetype convention
     build       Export format not found in pillar.config. Please edit it and add a valid export format at "defaultExport" label
-    codeCheck   Check code in all the codeblocks in given file or book, then generate a report
-    generateTests
-                Generate tests from examples in the codeblocks of Pillar file(s)
+    check   Check code in all the codeblocks in given file or book, then generate a report
     serve       Serve of the current project
     updateBuild
                 Update build/archetypes using folder in parent directory
     updateTemplate
                 Update a given template
-    referenceCheck
-                Check the duplicated or unknown references as well as missing input files
-    convertAlternateSlide
-                Create a microdown slide file in the current directory, which contains the conversion in microdown format of the argument.
-    convertBook
-                Create a microdown book in the current directory, which contains the conversion in microdown format of the argument.
-    convertChapter
-                Create a microdown book chapter in the current directory, which contains the conversion in microdown format of the argument.
-    convertSlide
-                Create a microdown slide file in the current directory, which contains the conversion in microdown format of the argument.
 ```
 
 
@@ -67,13 +55,19 @@ Here the example is trivial but it shows that we can make sure that examples in 
 
 
 ```
-	```example=true	3 + 4 	>>> 7	```
+	```example=true
+	3 + 4 
+	>>> 7
+	```
 ```
 
 The following one expresses that the code snippet should raise an error.
 
 ```
-	```example=true&expectedFailure=true	1 / 0 	>>> 12			```
+	```example=true&expectedFailure=true
+	1 / 0 
+	>>> 12		
+	```
 ```
 
 
@@ -95,7 +89,7 @@ It starts from a document and analyses only the documents that can be reached fr
 It means that you can have files with draft contents without getting impacting by the reference checker. 
 
 ```
-pharo pillarImage.image clap pillar referenceCheck index.md
+pharo pillarImage.image clap pillar check index.md
 ```
 
 Note that the shell script will change in the future but its essence will stay the same. 
