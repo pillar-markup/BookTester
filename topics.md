@@ -25,8 +25,67 @@ Pay attention to follow the loading instructions to **develop** Microdown as def
 preloaded in Pharo may conflict with the version you will load. 
 
 
-## Support for hiding corrections
+## Getting started
 
+### Model
+Have a look at the document model
+- What is the root of a document?
+- What is the class of the object that represents code block?
+- What is the class that represents italic font?
+
+
+### From text to objects
+
+- Read the tests to understand how to get an object representing the text?
+- Turn the following text into a document object
+
+We will reuse the following text in other exercises. So we store it into a variable. 
+```
+miniDoc := '
+# Microdown 
+
+Microdown is a super cool markdown description language.
+It supports basic markdown but also extensions that are important to write books.
+
+
+# Architecture
+
+Microdown proposes visitors to 
+
+- Export in LaTeX, HTML
+- Dump the document tree as objects
+- Checkers
+
+## Visitors
+
+Visitors just visit the structure tree and perform the corresponding actions. 
+
+## A builder
+
+A builder proposes an API to produce Microdown instructions without manipulating text directly. 
+It decouples the structure from the actual textual representation. It allows developers to script documentation. 
+'
+```
+
+- Check that the root of the document is effectively an instance of the class you identified earlier. 
+- Navigate some children of the root. 
+
+
+### Check the Visitors	
+
+Check the subclass of the MicrodownVisitor
+
+### Builder Programmatically writing a textual document
+
+While visitors often go from objects to textual representations, we often need to generate textual 
+representations of the manipulated document objects.
+
+We could also simply manipulate strings and concatenate them by hand. This, however, would expose
+our program to any simple language evolution. Identify the solution proposed by Microdown. 
+
+
+
+## Topic: Support for hiding corrections
 
 Imagine the file Chapter1/File1.md 
 
@@ -60,7 +119,7 @@ and that another file `Chapter1/File1Solution.md` is generated with the
 
 ```
 
-## Better Life and Sync functionality
+## Topic: Better Life and Sync functionality
 
 Microdown got support the possibility to generate in the output the definition of classes or methods without copy pasting it. 
 
@@ -83,25 +142,25 @@ is in sync with the actual version of the code.
 
 
 
-## Book web publication
+## Topic: Book web publication
 
 We would like to have different css style for books. We need a simpler way to do book publication on the web
 for example http://books.pharo.org/booklet-AMiniSchemeInPharo/html/book.html is generated from https://github.com/SquareBracketAssociates/Booklet-
 AMiniSchemeInPharo
 
 
-## Book management enhancements
+## Topic: Book management enhancements
 
 There is a first version of a book checker. It checks unreferenced figure, doubly defined anchors. The goal of the project is to verify that the checks are correcly
 performed
 
 - Automatic Numbering. By default the mapping between the number of ## in microdown and the latex level (section or subsection) is hardcoded and we would like to let the user expresses it needs. Here we should have a look at Pillar and its configuration to pass the configuration specification to the printer. 
 
-## Book Sanitizer
+## Topic: Book Sanitizer
 
 The idea is to propose rules of language style to be followed. For example, making sure that there is no
 “allows to do” but “allows one to do” in the text. 
 
-## Rendered math downloader
+## Topic: Rendered math downloader
 
 For web or in image rendering,  a math expression is rendered asking a web service to produce the LaTeX.  We would like to be able to cache such rendered png. The idea is that the math expressions should get a unique id and based on this idea the rendered png should be stored and used in place of the service request.
