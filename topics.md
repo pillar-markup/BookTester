@@ -148,6 +148,83 @@ We would like to have different css style for books. We need a simpler way to do
 for example http://books.pharo.org/booklet-AMiniSchemeInPharo/html/book.html is generated from 
 https://github.com/SquareBracketAssociates/Booklet-AMiniSchemeInPharo
 
+For this project we need to be able to generate a table of contents from the book.
+
+### Topic:  Table of contents
+
+We would like to have a table of content builder. Given a book, the Toc builder will generate a microdown document tree containing references to the corresponding book entities (chapter, section).
+
+To achieve this exercise we propose several solutions. 
+
+#### Generating a plain text TOC
+
+Define a simple Visitor that will generate a text. For example
+
+```
+vis := SimpleTOCGenerator new.
+vis visit: (Microdown parse: miniDoc)
+vis contents
+>
+
+'
+Microdown
+Architecture
+  Visitors
+  A builder
+'
+
+#### Controlling the level
+
+Now we can also want to only show sections whose nested in higher than a certain level.
+
+```
+vis := SimpleTOCGenerator new.
+vis showOnlyAbove: 1.  
+vis visit: (Microdown parse: miniDoc)
+vis contents
+>
+
+'
+Microdown
+Architecture
+'
+
+#### Showing numbers
+
+Now we may want to get the TOC numbered
+
+```
+vis := SimpleTOCGenerator new.
+vis showOnlyAbove: 1.  
+vis numbered.
+vis visit: (Microdown parse: miniDoc)
+vis contents
+>
+
+'
+1 Microdown
+2 Architecture
+'
+```
+#### Producing Microdown
+
+Now we would like to be able to produce Microdown text that represents the TOC.
+This solution should use the textual builder.
+
+```
+vis := SimpleTOCGenerator new.
+vis showOnlyAbove: 1.  
+vis visit: (Microdown parse: miniDoc)
+vis contents
+>
+
+'
+# Microdown
+# Architecture
+'
+```
+
+
 
 
 
@@ -205,78 +282,6 @@ A sanitizer should be configurable to take into account book guidelines.
 
 
 
-## Topic:  Table of contents
-
-We would like to have a table of content builder. Given a book, the Toc builder will generate a microdown document tree containing references to the corresponding book entities (chapter, section).
-
-To achieve this exercise we propose several solutions. 
-
-#### Generating a plain text TOC
-
-Define a simple Visitor that will generate a text. For example
-
-```
-vis := SimpleTOCGenerator new.
-vis visit: (Microdown parse: miniDoc)
-vis contents
->
-
-'
-Microdown
-Architecture
-  Visitors
-  A builder
-'
-
-#### Controlling the level
-
-Now we can also want to only show sections whose nested in higher than a certain level.
-
-```
-vis := SimpleTOCGenerator new.
-vis showOnlyAbove: 1.  
-vis visit: (Microdown parse: miniDoc)
-vis contents
->
-
-'
-Microdown
-Architecture
-'
-
-#### Showing numbers
-
-Now we may want to get the TOC numbered
-
-```
-vis := SimpleTOCGenerator new.
-vis showOnlyAbove: 1.  
-vis numbered.
-vis visit: (Microdown parse: miniDoc)
-vis contents
->
-
-'
-1 Microdown
-2 Architecture
-'
-
-#### Producing Microdown
-
-Now we would like to be able to produce Microdown text that represents the TOC.
-This solution should use the textual builder.
-
-```
-vis := SimpleTOCGenerator new.
-vis showOnlyAbove: 1.  
-vis visit: (Microdown parse: miniDoc)
-vis contents
->
-
-'
-# Microdown
-# Architecture
-'
 
 ## Topic: Book management enhancements
 
