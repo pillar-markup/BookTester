@@ -291,31 +291,9 @@ performed
 
 - Automatic Numbering. By default the mapping between the number of ## in microdown and the latex level (section or subsection) is hardcoded and we would like to let the user expresses it needs. Here we should have a look at Pillar and its configuration to pass the configuration specification to the printer. 
 
-### Link checker
-
-In Microdown, the writer can refer to figures and anchors as well as to web site as shown here after.
-
-```
-## A Section 
-@anchor1
-
-![A caption](figures/fig.png label=figanchor)
-
-[ Pharo web site ](https://pharo.org)
-https://pharo.org
-
-In Section *@anchor1@* we can find Fig. *@figanchor@*.
-```
-
-We would like to have a checker that reports to the users the set of references (defined using the `*@xxx@*` instruction  that are not found. 
 
 
-
-
-
-
-
-## Automatic Numbering 
+### Automatic Numbering 
 
 When writing a book users do not want to be forced to write in the exact same level of nesting than the template interpretation. For example, in this book # is to represent a LaTeX part, and ## for a chapter. However, it would possible to simply change the numbering so that a writer can write # for title and to use meta data at the level of the file to control this. 
 
