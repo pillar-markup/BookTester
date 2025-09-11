@@ -145,8 +145,8 @@ is in sync with the actual version of the code.
 ## Topic: Book web publication
 
 We would like to have different css style for books. We need a simpler way to do book publication on the web
-for example http://books.pharo.org/booklet-AMiniSchemeInPharo/html/book.html is generated from https://github.com/SquareBracketAssociates/Booklet-
-AMiniSchemeInPharo
+for example http://books.pharo.org/booklet-AMiniSchemeInPharo/html/book.html is generated from 
+https://github.com/SquareBracketAssociates/Booklet-AMiniSchemeInPharo
 
 
 
