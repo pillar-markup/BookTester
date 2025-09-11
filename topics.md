@@ -275,6 +275,7 @@ Here are some guidelines about writing style and spelling
 - The book sanitizer can report problems of the document tree to reflect them. 
 - A subsequent version could change the files to reflect such change so that the user can save them.
 
+- Here is a real project of a book listing guideline https://github.com/SquareBracketAssociates/BuildingApplicationWithSpec2/blob/master/guidelines.txt
 A sanitizer should be configurable to take into account book guidelines.
 
 
