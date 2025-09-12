@@ -85,15 +85,15 @@ our program to any simple language evolution. Identify the solution proposed by 
 
 
 
-## Topic: Support for hiding corrections
-
 Imagine the file Chapter1/File1.md 
 
 ```
-		```exercice
-               Foo>> bar
-					some code
-        ```
+		```exercice&anchor=exfoobar
+               Foo >> bar
+				some code
+				more code
+				even more code
+                  ```
 ```
 
 We want that the document is transformed into 
@@ -111,10 +111,12 @@ We want that the document is transformed into
 and that another file `Chapter1/File1Solution.md` is generated with the 	
 
 ```
-  	 	Here is the solution of the code *@Code1@* in Chapter *@Chap1@*
+  	 	Here is the solution of the code *@exfoobar@* in Chapter *@Chap1@*
   		```
         Foo>> bar
 			some code
+			more code
+			even more code
         ```
 
 ```
