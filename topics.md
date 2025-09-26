@@ -226,6 +226,13 @@ vis contents
 '
 ```
 
+#### Supporting Link
+
+Now we would like to be able to create a link (for example in HTML) from the TOC to the file.
+In such a case we need to have an object representing a TocEntry.
+This entity will be able to hold a link to file or an URL
+
+
 
 
 
